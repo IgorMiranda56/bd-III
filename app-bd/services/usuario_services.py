@@ -9,9 +9,9 @@ class UsuarioServices:
         try:
             usuario = Usuario(nome=nome, email=email, senha=senha)
 
-            novo_usuario = self.repository.pesquisar_usuario_por_email(usuario.email)
+            cadastrado = self.repository.pesquisar_usuario_por_email(usuario.email)
 
-            if not novo_usuario:
+            if cadastrado:
                 print("Usuário já cadastrado.")
                 return
 
