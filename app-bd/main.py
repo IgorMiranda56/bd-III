@@ -4,7 +4,7 @@ from config.database import Session
 
 def main():
     session = Session()
-    repository - UsuarioRepositories(session)
+    repository = UsuarioRepositories(session)
     service = UsuarioServices(repository)
 
     # Solicitando dados para o usuário.
