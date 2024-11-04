@@ -1,8 +1,11 @@
 from config.database import Session
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker, declarative_base
+from services.usuario_services import UsuarioServices
+from repositories.usuario_repositories import UsuarioRepositories
 import os
 import time
+
 
 BANCO = create_engine("sqlite:///meubancoaluno.db")
 
@@ -12,7 +15,8 @@ session = Session()
 Base = declarative_base()
 
 os.system("cls || clear")
-
+repository = UsuarioRepositories(session)
+service = UsuarioServices(repository)
 
 class Usuario(Base):
     __tablename__ = "usuarios"
@@ -38,7 +42,7 @@ def menu():
         f"=== SENAI SOLUTION === \n1 - Adicionar usuário \n2 - Pesquisar um usuário \n3 - Atualizar dados de um usuário \n4 - Excluir um usuário \n5 - Exibir todos os usuários cadastrados \n0 - Sair"
     )
 
-
+"""
 def create_usuario():
     # Solicitando dados para o usuário.
     print("\nAdicionando usuário.")
@@ -50,8 +54,8 @@ def create_usuario():
     session.add(usuario)
     session.commit()
     return create_usuario
-
-
+"""
+"""
 def read_usuario():
     lista_usuarios = session.query(Usuario).all()
 
@@ -59,7 +63,7 @@ def read_usuario():
         print(f"{usuario.id} - {usuario.nome} - {usuario.email} - {usuario.senha}")
 
     return read_usuario
-
+"""
 
 def update_usuario():
     email_usuario = input("Digite o email do usuario que será atualizado: ")

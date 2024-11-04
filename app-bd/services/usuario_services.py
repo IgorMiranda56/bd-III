@@ -23,5 +23,12 @@ class UsuarioServices:
             print("Ocorreu um erro inesperado: {erro}")
     
     def listar_todos_usuarios(self):
-        return self.repository.listar_usuarios()
-    
+        lista_usuarios = self.repository,lista_usuarios()
+        print("\nListando usuários cadastrados: ")
+        for usuario in lista_usuarios:
+            print(f"Nome: {usuario.nome} \nEmail: {usuario.email} \nSenha: {usuario.senha}")
+        #return self.repository.listar_usuarios()
+    def atualizar_usuario(self):
+        try: 
+            print("\nAtualizando os dados de um usuário.")
+            emal_usuario = input("Informe o email do usuário:")
