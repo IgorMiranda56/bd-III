@@ -5,7 +5,7 @@ class UsuarioServices:
     def __init__(self, repository = UsuarioRepositories):
         self.repository = repository
 
-    def criar_usuario(self, nome: str, email: str, senha: str):
+    def create_usuario(self, nome: str, email: str, senha: str):
         try:
             usuario = Usuario(nome=nome, email=email, senha=senha)
 
@@ -13,7 +13,7 @@ class UsuarioServices:
 
             if cadastrado:
                 print("Usuário já cadastrado.")
-                return
+                return 
 
             self.repository.salvar_usuario(usuario)
             print("Usuário cadastrado com  sucesso.")
@@ -24,3 +24,4 @@ class UsuarioServices:
     
     def listar_todos_usuarios(self):
         return self.repository.listar_usuarios()
+    
