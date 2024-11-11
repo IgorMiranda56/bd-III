@@ -26,7 +26,7 @@ class UsuarioServices:
             print("Ocorreu um erro inesperado: {erro}")
     
     def listar_todos_usuarios(self):
-        lista_usuarios = self.repository,lista_usuarios()
+        lista_usuarios = self.repository.lista_usuarios()
         print("\nListando usuários cadastrados: ")
         for usuario in lista_usuarios:
             print(f"Nome: {usuario.nome} \nEmail: {usuario.email} \nSenha: {usuario.senha}")
@@ -89,68 +89,3 @@ class UsuarioServices:
             print("Erro ao procurar o usuário: {erro}")
         except Exception as erro:
             print("Ocorreu um erro inesperado: {erro}")
-
-"""
-def create_usuario():
-    # Solicitando dados para o usuário.
-    print("\nAdicionando usuário.")
-    nome = str(input("Digite seu nome: "))
-    email = str(input("Digite seu email: "))
-    senha = str(input("Digite sua senha: "))
-
-    usuario = Usuario(nome=nome, email=email, senha=senha)
-    session.add(usuario)
-    session.commit()
-    return create_usuario
-
-
-def read_usuario():
-    lista_usuarios = session.query(Usuario).all()
-
-    for usuario in lista_usuarios:
-        print(f"{usuario.id} - {usuario.nome} - {usuario.email} - {usuario.senha}")
-
-    return read_usuario
-
-
-def update_usuario():
-    email_usuario = input("Digite o email do usuario que será atualizado: ")
-
-    usuario = session.query(Usuario).filter_by(email=email_usuario).first()
-
-    if usuario:
-        usuario.nome = input("Digite seu nome: ")
-        usuario.email = input("Digite seu e-mail: ")
-        usuario.senha = input("Digite sua senha: ")
-
-        session.commit()
-    else:
-        print("Usuário não encontrado. ")
-    return update_usuario
-
-
-def delete_usuario():
-    email_usuario = input("Digite o email do usuario que será excluído: ")
-
-    usuario = session.query(Usuario).filter_by(email=email_usuario).first()
-
-    if usuario:
-        session.delete(usuario)
-        session.commit()
-        print(f"Usuário {usuario.nome} excluído com sucesso! ")
-    else:
-        print("Usuário não encontrado. ")
-    return delete_usuario
-
-
-def consultar_usuario():
-    email_usuario = input("Digite o email do usuário: ")
-
-    usuario = session.query(Usuario).filter_by(email=email_usuario).first()
-
-    if usuario:
-        print(f"{usuario.id} - {usuario.nome} - {usuario.email} - {usuario.senha}")
-    else:
-        print("Usuário não encontrado. ")
-    return consultar_usuario
-"""

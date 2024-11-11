@@ -18,6 +18,23 @@ class Usuario(Base):
         self.nome = nome
         self.email = email
         self.senha = senha
+    
+    def _verificar_nome(self, nome: str):
+        if not isinstance(nome, str):
+            raise TypeError("Digite apenas texto para os nome.")
+        if not nome.strip():
+            raise ValueError("Nome não pode conter espaços vazios.")
+        return nome
+
+    def _verificar_email(self, email: str):
+        if not email.strip():
+            raise ValueError("E-mail não pode conter espaços vazios.")
+        return email
+
+    def _verificar_senha(self, senha: str):
+        if not senha.strip():
+            raise ValueError("Senha não pode conter espaços vazios.")
+        return senha
 
 # Criando tabela no banco de dados.
 Base.metadata.create_all(bind=db)
